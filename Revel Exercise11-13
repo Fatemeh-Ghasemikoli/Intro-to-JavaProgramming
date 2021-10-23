@@ -1,0 +1,51 @@
+import java.util.*;
+
+//main class
+public class Exercise11_13
+{
+// main method
+public static void main(String[] args)
+{
+  //Create a ArrayList's class
+  ArrayList<Integer> list = new ArrayList<Integer>();
+  
+  //Create a Scanner's class object
+  Scanner scn = new Scanner(System.in);
+
+  //Prompt and read input from the user
+  System.out.print("Enter ten integers: ");
+    int[] input = new int[10];
+     for (int i = 0; i < 10; i++)
+     {
+      input[i] = scn.nextInt();
+      list.add(input[i]);
+     }
+
+  scn.close();
+
+  //Call the method
+  removeDuplicate(list);
+
+  //Display output
+  System.out.print("The Distinct integers: ");
+  for (int i = 0; i < list.size(); i++)
+  {
+   System.out.print(list.get(i) + " ");
+  }
+}
+
+//This method that removes the duplicate elements
+//from an array list of integers
+public static void removeDuplicate(ArrayList<Integer> list)
+{
+  for (int i = 0; i < list.size(); i++)
+  {
+   Integer lst = list.get(i);
+   List sublist = list.subList(i + 1, list.size());
+   while (sublist.contains(lst))
+   {
+    sublist.remove(lst);
+   }
+  }
+}
+}
